@@ -31,20 +31,6 @@
   <!--[if lt IE 9]>
   <script src="https://unpkg.com/reveal.js@3.9.2//lib/js/html5shiv.js"></script>
   <![endif]-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      fleqn: false
-     });
-  }}});
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
 </head>
 <body>
   <div class="reveal">
@@ -61,7 +47,7 @@
 <p>Behzad Samadi</p>
 <p><a href="http://www.mechatronics3d.com">www.Mechatronics3D.com</a></p>
 <p>February 17, 2014</p>
-<p><span class="math inline">\DeclareMathOperator{\sign}{sgn} \newcommand{\CO}{\textbf{\rm conv}} \newcommand{\RR}{{\mathcal R}} \newcommand{\RE}{\mathbb{R}} \newcommand{\TR}{\text{T}} \newcommand{\beq}{\begin{equation}} \newcommand{\eeq}{\end{equation}} \newcommand{\bmat}{\left[\begin{array}} \newcommand{\emat}{\end{array}\right]} \newcommand{\bsmat}{\left[\begin{smallmatrix}} \newcommand{\esmat}{\end{smallmatrix}\right]} \newcommand{\barr}{\begin{array}} \newcommand{\earr}{\end{array}} \newcommand{\bsm}{\begin{smallmatrix}} \newcommand{\esm}{\end{smallmatrix}}</span></p>
+<p><span class="math inline">\(\DeclareMathOperator{\sign}{sgn} \newcommand{\CO}{\textbf{\rm conv}} \newcommand{\RR}{{\mathcal R}} \newcommand{\RE}{\mathbb{R}} \newcommand{\TR}{\text{T}} \newcommand{\beq}{\begin{equation}} \newcommand{\eeq}{\end{equation}} \newcommand{\bmat}{\left[\begin{array}} \newcommand{\emat}{\end{array}\right]} \newcommand{\bsmat}{\left[\begin{smallmatrix}} \newcommand{\esmat}{\end{smallmatrix}\right]} \newcommand{\barr}{\begin{array}} \newcommand{\earr}{\end{array}} \newcommand{\bsm}{\begin{smallmatrix}} \newcommand{\esm}{\end{smallmatrix}}\)</span></p>
 </section>
 <section id="outline" class="slide level2">
 <h2>Outline</h2>
@@ -90,8 +76,8 @@
 <section><section id="introduction" class="title-slide slide level1"><h1>Introduction</h1></section>
 <section id="what-is-convex-optimization" class="slide level2">
 <h2>What is convex optimization?</h2>
-<p><span class="math inline">\begin{align} \text{minimize}&amp;f(x)\nonumber \newline \text{subject to}&amp; x\in C \end{align}</span></p>
-<p>where <span class="math inline">f</span> is a convex function and <span class="math inline">C</span> is a convex set.</p>
+<p><span class="math inline">\(\begin{align} \text{minimize}&amp;f(x)\nonumber \newline \text{subject to}&amp; x\in C \end{align}\)</span></p>
+<p>where <span class="math inline">\(f\)</span> is a convex function and <span class="math inline">\(C\)</span> is a convex set.</p>
 </section>
 <section id="why-is-it-important" class="slide level2">
 <h2>Why is it important?</h2>
@@ -108,39 +94,39 @@
 <section><section id="convex-sets" class="title-slide slide level1"><h1>Convex Sets</h1></section>
 <section id="convex-combination" class="slide level2">
 <h2>Convex combination</h2>
-<p>Given <span class="math inline">m</span> points in <span class="math inline">\RR^n</span> denoted by <span class="math inline">x_i</span> for <span class="math inline">i=1,\ldots,m</span>, <span class="math inline">x</span> is convex combination of the <span class="math inline">m</span> points if it can be written as:</p>
-<p><span class="math inline">\begin{equation} x = \sum_{i=1}^m \lambda_ix_i \end{equation}</span></p>
-<p>where <span class="math inline">\lambda_i\geq 0</span> and</p>
-<p><span class="math inline">\begin{equation} \sum_{i=1}^m\lambda_i=1 \end{equation}</span></p>
+<p>Given <span class="math inline">\(m\)</span> points in <span class="math inline">\(\RR^n\)</span> denoted by <span class="math inline">\(x_i\)</span> for <span class="math inline">\(i=1,\ldots,m\)</span>, <span class="math inline">\(x\)</span> is convex combination of the <span class="math inline">\(m\)</span> points if it can be written as:</p>
+<p><span class="math inline">\(\begin{equation} x = \sum_{i=1}^m \lambda_ix_i \end{equation}\)</span></p>
+<p>where <span class="math inline">\(\lambda_i\geq 0\)</span> and</p>
+<p><span class="math inline">\(\begin{equation} \sum_{i=1}^m\lambda_i=1 \end{equation}\)</span></p>
 </section>
 <section id="convex-sets-1" class="slide level2">
 <h2>Convex Sets</h2>
-<p><strong>Convex set:</strong> A set <span class="math inline">C\subseteq\RR^n</span> is convex if the convex combination of any two points in <span class="math inline">C</span> belongs to <span class="math inline">C</span>.</p>
-<p><strong>Convex hull:</strong> The convex hull of a set <span class="math inline">S</span>, denoted by <span class="math inline">\text{conv}(S)</span>, is the set of all convex combinations of points in <span class="math inline">S</span>.</p>
+<p><strong>Convex set:</strong> A set <span class="math inline">\(C\subseteq\RR^n\)</span> is convex if the convex combination of any two points in <span class="math inline">\(C\)</span> belongs to <span class="math inline">\(C\)</span>.</p>
+<p><strong>Convex hull:</strong> The convex hull of a set <span class="math inline">\(S\)</span>, denoted by <span class="math inline">\(\text{conv}(S)\)</span>, is the set of all convex combinations of points in <span class="math inline">\(S\)</span>.</p>
 </section>
 <section id="affine-set" class="slide level2">
 <h2>Affine Set</h2>
-<p><strong>Affine combination:</strong> <span class="math inline">x</span> is an affine combination of <span class="math inline">x_1</span> and <span class="math inline">x_2</span> if it can be written as:</p>
-<p><strong>Affine set:</strong> A set <span class="math inline">C\subseteq\RR^n</span> is affine if the affine combination of any two points in <span class="math inline">C</span> belongs to <span class="math inline">C</span>.</p>
+<p><strong>Affine combination:</strong> <span class="math inline">\(x\)</span> is an affine combination of <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> if it can be written as:</p>
+<p><strong>Affine set:</strong> A set <span class="math inline">\(C\subseteq\RR^n\)</span> is affine if the affine combination of any two points in <span class="math inline">\(C\)</span> belongs to <span class="math inline">\(C\)</span>.</p>
 </section>
 <section id="convex-cone" class="slide level2">
 <h2>Convex Cone</h2>
-<p><strong>Cone (nonnegative) combination:</strong> Cone combination of two points <span class="math inline">x_1</span> and <span class="math inline">x_2</span> is a point <span class="math inline">x</span> that can be written as:</p>
-<p>with <span class="math inline">\theta_1\geq 0</span> and <span class="math inline">\theta_2\geq 0</span>.</p>
-<p><strong>Convex cone:</strong> A set <span class="math inline">S</span> is a convex cone, if it contains all convex combinations of points in the set.</p>
+<p><strong>Cone (nonnegative) combination:</strong> Cone combination of two points <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> is a point <span class="math inline">\(x\)</span> that can be written as:</p>
+<p>with <span class="math inline">\(\theta_1\geq 0\)</span> and <span class="math inline">\(\theta_2\geq 0\)</span>.</p>
+<p><strong>Convex cone:</strong> A set <span class="math inline">\(S\)</span> is a convex cone, if it contains all convex combinations of points in the set.</p>
 </section>
 <section id="polyhedron" class="slide level2">
 <h2>Polyhedron</h2>
-<p><strong>Hyperplane:</strong> A hyperplane is a set of the form <span class="math inline">\{x|a^\text{T}x=b\}</span> with <span class="math inline">a\neq 0</span>.</p>
-<p><strong>Halfspace:</strong> A halfspace is a set of the form <span class="math inline">\{x|a^\text{T}x\leq b\}</span> with <span class="math inline">a\neq 0</span>.</p>
+<p><strong>Hyperplane:</strong> A hyperplane is a set of the form <span class="math inline">\(\{x|a^\text{T}x=b\}\)</span> with <span class="math inline">\(a\neq 0\)</span>.</p>
+<p><strong>Halfspace:</strong> A halfspace is a set of the form <span class="math inline">\(\{x|a^\text{T}x\leq b\}\)</span> with <span class="math inline">\(a\neq 0\)</span>.</p>
 <p><strong>Polyhedron:</strong> A polyhedron is the intersection of finite number of hyperplanes and halfspaces. A polyhedron can be written as:</p>
-<p>where <span class="math inline">\preceq</span> denotes componentwise inequality.</p>
+<p>where <span class="math inline">\(\preceq\)</span> denotes componentwise inequality.</p>
 </section>
 <section id="ellipsoid" class="slide level2">
 <h2>Ellipsoid</h2>
-<p><strong>Euclidean ball:</strong> A ball with center <span class="math inline">x_c</span> and radius <span class="math inline">r</span> is defined as:</p>
-<p><span class="math inline">\begin{equation} B(x_c,r)=\{x| \|x-x_c\|_2\leq r\}=\{x| x=x_c+ru, \|u\|_2\leq r\} \end{equation}</span></p>
-<p><strong>Ellipsoid:</strong> An ellipsoid is defined as: <span class="math inline">\begin{equation} \{x | (x-x_c)^\text{T}P^{-1}(x-x_c)\leq 1\} \end{equation}</span> where <span class="math inline">P</span> is a positive definite matrix. It can also be defined as: <span class="math inline">\begin{equation} \{x| x=x_c+Au, \|u\|_2\leq r\} \end{equation}</span></p>
+<p><strong>Euclidean ball:</strong> A ball with center <span class="math inline">\(x_c\)</span> and radius <span class="math inline">\(r\)</span> is defined as:</p>
+<p><span class="math inline">\(\begin{equation} B(x_c,r)=\{x| \|x-x_c\|_2\leq r\}=\{x| x=x_c+ru, \|u\|_2\leq r\} \end{equation}\)</span></p>
+<p><strong>Ellipsoid:</strong> An ellipsoid is defined as: <span class="math inline">\(\begin{equation} \{x | (x-x_c)^\text{T}P^{-1}(x-x_c)\leq 1\} \end{equation}\)</span> where <span class="math inline">\(P\)</span> is a positive definite matrix. It can also be defined as: <span class="math inline">\(\begin{equation} \{x| x=x_c+Au, \|u\|_2\leq r\} \end{equation}\)</span></p>
 </section>
 <section id="proper-cone" class="slide level2">
 <h2>Proper Cone</h2>
@@ -151,41 +137,41 @@
 <li><p><strong>solid</strong> (has nonempty interior)</p></li>
 <li><p><strong>pointed</strong> (contains no lines)</p></li>
 </ul></li>
-<li><p>The nonnegative orthant of <span class="math inline">\mathbb{R}^n</span>, <span class="math inline">\{x|x\in\mathbb{R}^n,x_i\geq 0, i=1,\ldots,n \}</span> is a proper cone.</p></li>
-<li><p>Also the cone of positive semidefinite matrices in <span class="math inline">\mathbb{R}^{n\times n}</span> is a proper cone.</p></li>
+<li><p>The nonnegative orthant of <span class="math inline">\(\mathbb{R}^n\)</span>, <span class="math inline">\(\{x|x\in\mathbb{R}^n,x_i\geq 0, i=1,\ldots,n \}\)</span> is a proper cone.</p></li>
+<li><p>Also the cone of positive semidefinite matrices in <span class="math inline">\(\mathbb{R}^{n\times n}\)</span> is a proper cone.</p></li>
 </ul>
 </section>
 <section id="generalized-inequality" class="slide level2">
 <h2>Generalized Inequality</h2>
-<p>A <strong>generalized inequality</strong> is defined by a proper cone <span class="math inline">K</span>:</p>
-<p><span class="math inline">\begin{equation} x\preceq_K y \Leftrightarrow y-x\in K \end{equation}</span></p>
-<p><span class="math inline">\begin{equation} x\prec_K y \Leftrightarrow y-x\in \text{interior}(K) \end{equation}</span></p>
+<p>A <strong>generalized inequality</strong> is defined by a proper cone <span class="math inline">\(K\)</span>:</p>
+<p><span class="math inline">\(\begin{equation} x\preceq_K y \Leftrightarrow y-x\in K \end{equation}\)</span></p>
+<p><span class="math inline">\(\begin{equation} x\prec_K y \Leftrightarrow y-x\in \text{interior}(K) \end{equation}\)</span></p>
 </section>
 <section id="generalized-inequality-1" class="slide level2">
 <h2>Generalized Inequality</h2>
 <p>In this context, we deal with the following inequalities:</p>
 <ol type="1">
-<li><p>The <strong>inequality on real numbers</strong> is defined based on the proper cone of nonnegative real numbers <span class="math inline">K=\mathbb{R}_+</span>.</p></li>
-<li><p>The <strong>componentwise inequality</strong> on real vectors in <span class="math inline">\mathbb{R}^n</span> is defined based on the nonnegative orthant <span class="math inline">K=\mathbb{R}^n_+</span>.</p></li>
-<li><p>The <strong>matrix inequality</strong> is defined based on the proper cone of positive semidefinite matrices <span class="math inline">K=S^n_+</span>.</p></li>
+<li><p>The <strong>inequality on real numbers</strong> is defined based on the proper cone of nonnegative real numbers <span class="math inline">\(K=\mathbb{R}_+\)</span>.</p></li>
+<li><p>The <strong>componentwise inequality</strong> on real vectors in <span class="math inline">\(\mathbb{R}^n\)</span> is defined based on the nonnegative orthant <span class="math inline">\(K=\mathbb{R}^n_+\)</span>.</p></li>
+<li><p>The <strong>matrix inequality</strong> is defined based on the proper cone of positive semidefinite matrices <span class="math inline">\(K=S^n_+\)</span>.</p></li>
 </ol>
 </section></section>
 <section><section id="convex-function" class="title-slide slide level1"><h1>Convex Function</h1></section>
 <section id="convex-function-1" class="slide level2">
 <h2>Convex Function</h2>
-<p><strong>Definition:</strong> A function <span class="math inline">f:X_D \rightarrow X_R</span> with <span class="math inline">X_D\subseteq\RR^n</span> and <span class="math inline">X_R\subseteq\RR</span> is a convex function if for any <span class="math inline">x_1</span> and <span class="math inline">x_2</span> in <span class="math inline">X_D</span> and <span class="math inline">\lambda_1 \geq 0</span>, <span class="math inline">\lambda_2 \geq 0</span> such that <span class="math inline">\lambda_1+\lambda_2=1</span>, we have: <span class="math inline">\begin{equation} f(\lambda_1x_1+\lambda_2x_2)\leq \lambda_1f(x_1)+\lambda_2f(x_2) \end{equation}</span></p>
+<p><strong>Definition:</strong> A function <span class="math inline">\(f:X_D \rightarrow X_R\)</span> with <span class="math inline">\(X_D\subseteq\RR^n\)</span> and <span class="math inline">\(X_R\subseteq\RR\)</span> is a convex function if for any <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> in <span class="math inline">\(X_D\)</span> and <span class="math inline">\(\lambda_1 \geq 0\)</span>, <span class="math inline">\(\lambda_2 \geq 0\)</span> such that <span class="math inline">\(\lambda_1+\lambda_2=1\)</span>, we have: <span class="math inline">\(\begin{equation} f(\lambda_1x_1+\lambda_2x_2)\leq \lambda_1f(x_1)+\lambda_2f(x_2) \end{equation}\)</span></p>
 </section></section>
 <section><section id="convex-optimization" class="title-slide slide level1"><h1>Convex Optimization</h1></section>
 <section id="convex-optimization-1" class="slide level2">
 <h2>Convex Optimization</h2>
-<p>A mathematical optimization is convex if the objective is a convex function and the feasible set is a convex set. The standard form of a convex optimization problem is: <span class="math inline">\begin{align} \text{minimize } &amp; f_0(x) \nonumber\newline \text{subject to } &amp; f_i(x) \leq 0,\ i=1,\ldots,m\nonumber\newline &amp; h_i(x) = 0,\ i=1,\ldots,p \end{align}</span></p>
-<p>where <span class="math inline">f_i</span>’s are convex and <span class="math inline">h_i</span>’s are affine functions.</p>
+<p>A mathematical optimization is convex if the objective is a convex function and the feasible set is a convex set. The standard form of a convex optimization problem is: <span class="math inline">\(\begin{align} \text{minimize } &amp; f_0(x) \nonumber\newline \text{subject to } &amp; f_i(x) \leq 0,\ i=1,\ldots,m\nonumber\newline &amp; h_i(x) = 0,\ i=1,\ldots,p \end{align}\)</span></p>
+<p>where <span class="math inline">\(f_i\)</span>’s are convex and <span class="math inline">\(h_i\)</span>’s are affine functions.</p>
 </section>
 <section id="linear-program" class="slide level2">
 <h2>Linear Program</h2>
 <p>Linear programming (LP) is one of the best known forms of convex optimization.</p>
-<p><span class="math inline">\begin{align}\label{LP} \text{minimize }&amp;c^\text{T}x\nonumber\newline \text{subject to }&amp;a_i^\text{T}x\leq b_i,\ i=1,\ldots,m \end{align}</span></p>
-<p>where <span class="math inline">x</span>, <span class="math inline">c</span> and <span class="math inline">a_i</span> for <span class="math inline">i=1,\ldots,m</span> belong to <span class="math inline">\mathbb{R}^n</span>.</p>
+<p><span class="math inline">\(\begin{align}\label{LP} \text{minimize }&amp;c^\text{T}x\nonumber\newline \text{subject to }&amp;a_i^\text{T}x\leq b_i,\ i=1,\ldots,m \end{align}\)</span></p>
+<p>where <span class="math inline">\(x\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(a_i\)</span> for <span class="math inline">\(i=1,\ldots,m\)</span> belong to <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
 </section>
 <section id="linear-program-1" class="slide level2">
 <h2>Linear Program</h2>
@@ -202,7 +188,7 @@
 <section id="mixed-integer-linear-program" class="slide level2">
 <h2>Mixed Integer Linear Program</h2>
 <ul>
-<li><p>If some of the entries of <span class="math inline">x</span> are required to be integers, we have a Mixed Integer Linear Programming (MILP) program.</p></li>
+<li><p>If some of the entries of <span class="math inline">\(x\)</span> are required to be integers, we have a Mixed Integer Linear Programming (MILP) program.</p></li>
 <li><p>A MILP problem is in general difficult to solve (non-convex and NP-complete).</p></li>
 <li><p>In practice, the global optimum can be found for many useful MILP problems.</p></li>
 </ul>
@@ -210,7 +196,7 @@
 <section id="linear-program-2" class="slide level2">
 <h2>Linear Program</h2>
 <h3 id="example-i">Example I</h3>
-<p><span class="math inline">\begin{align} \text{maximize: } &amp; x + y\nonumber\\ \text{Subject to: } &amp; x + y \geq -1 \\ \text{} &amp; \frac{x}{2}-y \geq -2\nonumber\\ \text{} &amp; 2x-y \leq -4\nonumber \end{align}</span></p>
+<p><span class="math inline">\(\begin{align} \text{maximize: } &amp; x + y\nonumber\\ \text{Subject to: } &amp; x + y \geq -1 \\ \text{} &amp; \frac{x}{2}-y \geq -2\nonumber\\ \text{} &amp; 2x-y \leq -4\nonumber \end{align}\)</span></p>
 </section>
 <section id="linear-program-3" class="slide level2">
 <h2>Linear Program</h2>
@@ -250,7 +236,7 @@
 <section id="linear-program-5" class="slide level2">
 <h2>Linear Program</h2>
 <h3 id="example-ii">Example II</h3>
-<p><span class="math inline">\begin{align} \text{minimize: } &amp; x + y\nonumber\\ \text{Subject to: } &amp; x + y \geq -1 \\ \text{} &amp; \frac{x}{2}-y \leq -2\nonumber\\ \text{} &amp; 2x-y \leq -4\nonumber \end{align}</span></p>
+<p><span class="math inline">\(\begin{align} \text{minimize: } &amp; x + y\nonumber\\ \text{Subject to: } &amp; x + y \geq -1 \\ \text{} &amp; \frac{x}{2}-y \leq -2\nonumber\\ \text{} &amp; 2x-y \leq -4\nonumber \end{align}\)</span></p>
 </section>
 <section id="linear-program-6" class="slide level2">
 <h2>Linear Program</h2>
@@ -288,26 +274,26 @@
 <h2>Linear Program</h2>
 <h3 id="example-iii-chebyshev-center">Example III: Chebyshev Center</h3>
 <p>Consider the following polyhedron:</p>
-<p><span class="math inline">\begin{equation} \mathcal{P} = \{x | a_i^Tx \leq b_i, i=1,...,m \} \end{equation}</span></p>
-<p>The Chebyshev center of <span class="math inline">\mathcal{P}</span> is the center of the largest ball in <span class="math inline">\mathcal{P}</span>:</p>
-<p><span class="math inline">\begin{equation} \mathcal{B}=\{x|\|x-x_c\|\leq r\} \end{equation}</span></p>
+<p><span class="math inline">\(\begin{equation} \mathcal{P} = \{x | a_i^Tx \leq b_i, i=1,...,m \} \end{equation}\)</span></p>
+<p>The Chebyshev center of <span class="math inline">\(\mathcal{P}\)</span> is the center of the largest ball in <span class="math inline">\(\mathcal{P}\)</span>:</p>
+<p><span class="math inline">\(\begin{equation} \mathcal{B}=\{x|\|x-x_c\|\leq r\} \end{equation}\)</span></p>
 </section>
 <section id="linear-program-10" class="slide level2">
 <h2>Linear Program</h2>
 <h3 id="example-iii-chebyshev-center-1">Example III: Chebyshev Center</h3>
 <ul>
-<li><p>For <span class="math inline">\mathcal{B}</span> to be inside <span class="math inline">\mathcal{P}</span>, we need to have:</p>
-<p><span class="math inline">a_i^Tx\leq b_i,\ i=1,\ldots,m</span> for all <span class="math inline">x</span> in <span class="math inline">\mathcal{B}</span></p></li>
-<li><p>For each <span class="math inline">i</span>, the point with the largest value of <span class="math inline">a_i^Tx</span> is: <span class="math inline">x^\star=x_c+\frac{r}{\sqrt{a_i^Ta_i}}a_i=x_c+\frac{r}{\|a_i\|_2}a_i</span></p></li>
+<li><p>For <span class="math inline">\(\mathcal{B}\)</span> to be inside <span class="math inline">\(\mathcal{P}\)</span>, we need to have:</p>
+<p><span class="math inline">\(a_i^Tx\leq b_i,\ i=1,\ldots,m\)</span> for all <span class="math inline">\(x\)</span> in <span class="math inline">\(\mathcal{B}\)</span></p></li>
+<li><p>For each <span class="math inline">\(i\)</span>, the point with the largest value of <span class="math inline">\(a_i^Tx\)</span> is: <span class="math inline">\(x^\star=x_c+\frac{r}{\sqrt{a_i^Ta_i}}a_i=x_c+\frac{r}{\|a_i\|_2}a_i\)</span></p></li>
 <li><p>Therefore:</p>
-<p><span class="math inline">a_i^Tx_c+r\|a_i\|_2\leq b_i, i=1,..,m\ \Rightarrow \mathcal{B}</span> is inside <span class="math inline">\mathcal{P}</span></p></li>
+<p><span class="math inline">\(a_i^Tx_c+r\|a_i\|_2\leq b_i, i=1,..,m\ \Rightarrow \mathcal{B}\)</span> is inside <span class="math inline">\(\mathcal{P}\)</span></p></li>
 </ul>
 </section>
 <section id="linear-program-11" class="slide level2">
 <h2>Linear Program</h2>
 <h3 id="example-iii-chebyshev-center-2">Example III: Chebyshev Center</h3>
 <p>Now, we can write the problem as the following LP problem (LP3):</p>
-<p><span class="math inline">\begin{align} \text{maximize: } &amp; r\nonumber\\ \text{Subject to: } &amp; a_i^Tx_c + r\|a_i\|_2 \leq b_i,\ i=1,..,m \end{align}</span></p>
+<p><span class="math inline">\(\begin{align} \text{maximize: } &amp; r\nonumber\\ \text{Subject to: } &amp; a_i^Tx_c + r\|a_i\|_2 \leq b_i,\ i=1,..,m \end{align}\)</span></p>
 </section>
 <section id="references" class="slide level2">
 <h2>References</h2>
@@ -324,11 +310,28 @@
       Reveal.initialize({
         // Push each slide change to the browser history
         history: true,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // Optional reveal.js plugins
         dependencies: [
           { src: 'https://unpkg.com/reveal.js@3.9.2//lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'https://unpkg.com/reveal.js@3.9.2//plugin/zoom-js/zoom.js', async: true },
+          { src: 'https://unpkg.com/reveal.js@3.9.2//plugin/math/math.js', async: true },
           { src: 'https://unpkg.com/reveal.js@3.9.2//plugin/notes/notes.js', async: true }
         ]
       });
