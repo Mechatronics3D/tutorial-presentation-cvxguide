@@ -78,7 +78,7 @@ where $\lambda_i\geq 0$ and
 
 $\begin{equation} \sum_{i=1}^m\lambda_i=1 \end{equation}$
 
-## Convex Set
+## Convex Sets
 
 **Convex set:** A set $C\subseteq\RR^n$ is convex if the convex
 combination of any two points in $C$ belongs to $C$.
