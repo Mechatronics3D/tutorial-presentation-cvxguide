@@ -31,6 +31,9 @@
   <!--[if lt IE 9]>
   <script src="https://unpkg.com/reveal.js@3.9.2//lib/js/html5shiv.js"></script>
   <![endif]-->
+  <style type="text/css">
+  	.reveal h1 { font-size: 2.5em; }
+  </style>
 </head>
 <body>
   <div class="reveal">
@@ -178,11 +181,11 @@
 <ul>
 <li><p>In general, no analytical solution</p></li>
 <li><p>Numerical algorithms</p></li>
-<li><p>Early algorithm, the one developed by Kantorovich in 1940 <span class="citation" data-cites="Kantorovich40">[@Kantorovich40]</span><br />
+<li><p>Early algorithm, the one developed by Kantorovich in 1940 <span class="citation" data-cites="Kantorovich40">[1]</span><br />
 </p></li>
-<li><p>The simplex method proposed by George Dantzig in 1947 <span class="citation" data-cites="Dantzig91">[@Dantzig91]</span></p></li>
-<li><p>The Russian mathematician L. G. Khachian developed a polynomial-time algorithm in 1979 <span class="citation" data-cites="Khachian79">[@Khachian79]</span></p></li>
-<li><p>The algorithm was an interior method, which was later improved by Karmarkar in 1984 <span class="citation" data-cites="Karmarkar84">[@Karmarkar84]</span></p></li>
+<li><p>The simplex method proposed by George Dantzig in 1947 <span class="citation" data-cites="Dantzig91">[2]</span></p></li>
+<li><p>The Russian mathematician L. G. Khachian developed a polynomial-time algorithm in 1979 <span class="citation" data-cites="Khachian79">[3]</span></p></li>
+<li><p>The algorithm was an interior method, which was later improved by Karmarkar in 1984 <span class="citation" data-cites="Karmarkar84">[4]</span></p></li>
 </ul>
 </section>
 <section id="mixed-integer-linear-program" class="slide level2">
@@ -295,8 +298,22 @@
 <p>Now, we can write the problem as the following LP problem (LP3):</p>
 <p><span class="math inline">\(\begin{align} \text{maximize: } &amp; r\nonumber\\ \text{Subject to: } &amp; a_i^Tx_c + r\|a_i\|_2 \leq b_i,\ i=1,..,m \end{align}\)</span></p>
 </section>
-<section id="references" class="slide level2">
-<h2>References</h2>
+<section id="references" class="slide level2 unnumbered">
+<h2 class="unnumbered">References</h2>
+<div id="refs" class="references" role="doc-bibliography">
+<div id="ref-Kantorovich40">
+<p>[1] L.V. Kantorovich, “A new method of solving of some classes of extremal problems,” <em>Doklady Akademii Sci USSR</em>, vol. 28, 1940, pp. 211–214.</p>
+</div>
+<div id="ref-Dantzig91">
+<p>[2] G.B. Dantzig, “History of mathematical programming: A collection of personal reminiscences,” Lenstra, J.K., Kan, A.H.G.R., and Schrijver, A., Eds., Elsevier Science Publishers, 1991.</p>
+</div>
+<div id="ref-Khachian79">
+<p>[3] L.G. Khachian, “A polynomial algorithm for linear programming,” <em>Doklady Akademii Nauk</em>, 1979, pp. 1093–1096.</p>
+</div>
+<div id="ref-Karmarkar84">
+<p>[4] N. Karmarkar, “A new polynomial-time algorithm for linear programming,” <em>Combinatorica</em>, vol. 4, 1984, pp. 373–395.</p>
+</div>
+</div>
 </section></section>
     </div>
   </div>
